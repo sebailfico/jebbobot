@@ -1,0 +1,30 @@
+{
+  "name": "jebbobot",
+  "version": "1.0.0",
+  "description": "Fully featured Jebbo's Telegram bot clone ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .\\index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebailfico/jebbobot.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "telegram",
+    "telegram-bot"
+  ],
+  "author": "github.com/sebailfico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebailfico/jebbobot/issues"
+  },
+  "homepage": "https://github.com/sebailfico/jebbobot#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "telegraf": "^3.30.1"
+  }
+}
