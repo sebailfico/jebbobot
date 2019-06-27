@@ -50,8 +50,12 @@ bot.command('lasbo', (ctx) => {
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 
 bot.on('voice', (ctx) => {
-
-  ctx.telegram.replyWithVoice (ctx.message.chat.id, ctx.message.voice.file_id, {})
+  // ctx.sendCopy(ctx.message.chat.id, ctx.message)
+  
+  ctx.reply(ctx.message)
+  ctx.reply(ctx.message.voice.file_id)
+  ctx.replyWithVoice(ctx.message.chat.id, ctx.message.voice.file_id, null)
+  // ctx.sendVoice(ctx.message.chat.id, ctx.message.voice.file_id, {})
 })
 
 
