@@ -25,6 +25,7 @@
   "homepage": "https://github.com/sebailfico/jebbobot#readme",
   "dependencies": {
     "dotenv": "^8.0.0",
+    "node-html-parser": "^1.1.15",
     "telegraf": "^3.30.1"
   }
 }

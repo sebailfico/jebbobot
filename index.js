@@ -1,7 +1,11 @@
+const HTMLParser = require('node-html-parser');
 const dotenv = require('dotenv');
+// const http = require('http');
+var https = require('https');
 dotenv.config();
 
 
+ 
 
 
 
@@ -51,12 +55,49 @@ bot.on('sticker', (ctx) => ctx.reply('👍'))
 
 bot.on('voice', (ctx) => {
   // ctx.sendCopy(ctx.message.chat.id, ctx.message)
-  
+
   ctx.reply(ctx.message)
   ctx.reply(ctx.message.voice.file_id)
   ctx.replyWithVoice(ctx.message.chat.id, ctx.message.voice.file_id, null)
   // ctx.sendVoice(ctx.message.chat.id, ctx.message.voice.file_id, {})
 })
+
+
+bot.command('baffo', (ctx) => {
+
+
+  https.get({ host: 'www.realtimemenu.com', path: '/menu-bar-selfservice-dora-730-itit-p-d.aspx' }, function (res) {
+
+    res.on('data', function (d) {
+
+      // console.log(d)
+      // console.log("cagnette")
+      // console.log(String(d))
+
+      var root = HTMLParser.parse(String(d));
+      console.log(root.querySelector('#colonna-centrale a'));
+    });
+
+  }).on('error', function (e) {
+    console.error(e);
+  });
+
+  // var options = {
+  //   host: 'https://www.realtimemenu.com',
+  //   port: 80,
+  //   path: '/menu-bar-selfservice-dora-730-itit-p-d.aspx'
+  // };
+
+  // http.get(options, function(res) {
+  //   console.log("Got response: " + res.statusCode);
+  // }).on('error', function(e) {
+  //   console.log("Got error: " + e.message);
+  // });
+
+
+  // ctx.reply("Gimme da Sbò...");
+})
+
 
 
 // bot.on('message', (ctx) => ctx.telegram.sendCopy(ctx.from.id, ctx.message, Extra.markup(keyboard)))
