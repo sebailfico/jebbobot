@@ -5,7 +5,7 @@ var https = require('https');
 dotenv.config();
 
 
- 
+
 
 
 
@@ -75,10 +75,22 @@ bot.command('baffo', (ctx) => {
       // console.log(String(d))
 
       var root = HTMLParser.parse(String(d));
-      console.log(root.querySelector('#colonna-centrale a'));
+      var a = root.querySelector('#colonna-centrale a')//[href*="/Public/Images"
+      if (a) {
+        try {
+          console.log(a.childNodes[0].rawAttributes)
+
+        }
+        catch{
+          console.log("Andato in mona")
+        }
+      }
+      else
+        console.log("NISBA MALE");
     });
 
   }).on('error', function (e) {
+    console.log("ERRORACCIO")
     console.error(e);
   });
 
