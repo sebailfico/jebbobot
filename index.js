@@ -53,18 +53,18 @@ bot.command('lasbo', (ctx) => {
 
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 
-bot.on('voice', (ctx) => {
-  // ctx.sendCopy(ctx.message.chat.id, ctx.message)
+// bot.on('voice', (ctx) => {
+//   // ctx.sendCopy(ctx.message.chat.id, ctx.message)
 
-  ctx.reply(ctx.message)
-  ctx.reply(ctx.message.voice.file_id)
-  ctx.replyWithVoice(ctx.message.chat.id, ctx.message.voice.file_id, null)
-  // ctx.sendVoice(ctx.message.chat.id, ctx.message.voice.file_id, {})
-})
+//   ctx.reply(ctx.message)
+//   ctx.reply(ctx.message.voice.file_id)
+//   ctx.replyWithVoice(ctx.message.chat.id, ctx.message.voice.file_id, null)
+//   // ctx.sendVoice(ctx.message.chat.id, ctx.message.voice.file_id, {})
+// })
 
 
 bot.command('baffo', (ctx) => {
-
+  const host = 'www.realtimemenu.com';
 
   https.get({ host: 'www.realtimemenu.com', path: '/menu-bar-selfservice-dora-730-itit-p-d.aspx' }, function (res) {
 
@@ -78,8 +78,9 @@ bot.command('baffo', (ctx) => {
       var a = root.querySelector('#colonna-centrale a')//[href*="/Public/Images"
       if (a) {
         try {
-          console.log(a.childNodes[0].rawAttributes)
-
+          const imagePath = a.rawAttrs.split(' ')[0].match(/"(.*)"/)[1];
+          console.log(host + imagePath);
+          ctx.reply(host + imagePath);
         }
         catch{
           console.log("Andato in mona")
