@@ -82,8 +82,8 @@ bot.command('baffo', (ctx) => {
           console.log(host + imagePath);
           ctx.reply(host + imagePath);
         }
-        catch{
-          console.log("Andato in mona")
+        catch (Error) {
+          console.log("Andato in mona");
         }
       }
       else
